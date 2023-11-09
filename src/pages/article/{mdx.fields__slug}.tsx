@@ -2,18 +2,8 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 import Layout from "../../components/layout";
 import utils from "../../libs/utils";
-// import ReactMarkdown from "react-markdown";
-// import remarkGfm from "remark-gfm";
-// import rehypeKatex from "rehype-katex";
-// import remarkMath from "remark-math";
 import {MdPreview} from "md-editor-rt";
 import 'md-editor-rt/lib/preview.css';
-// import "katex/dist/katex.min.css";
-// import "../../styles/markdown-themes/default/index.css";
-// @ts-ignore
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// @ts-ignore
-// import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const MdxFields__slug: React.FC<PageProps> = ({ data, children }) => {
   return (
@@ -56,7 +46,7 @@ const MdxFields__slug: React.FC<PageProps> = ({ data, children }) => {
         </div>
         {/* 正文 */}
         <section className="mt-10">
-        <MdPreview editorId='preview' modelValue={(data as any).mdx.body} previewTheme={'smart-blue'}/>
+        <MdPreview editorId='preview' modelValue={(data as any).mdx.body} />
         </section>
       </section>
     </Layout>
