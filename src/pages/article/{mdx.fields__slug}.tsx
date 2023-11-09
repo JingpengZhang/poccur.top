@@ -2,16 +2,18 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 import Layout from "../../components/layout";
 import utils from "../../libs/utils";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
-import "katex/dist/katex.min.css";
-import "../../styles/markdown-themes/default/index.css";
+// import ReactMarkdown from "react-markdown";
+// import remarkGfm from "remark-gfm";
+// import rehypeKatex from "rehype-katex";
+// import remarkMath from "remark-math";
+import {MdPreview} from "md-editor-rt";
+import 'md-editor-rt/lib/preview.css';
+// import "katex/dist/katex.min.css";
+// import "../../styles/markdown-themes/default/index.css";
 // @ts-ignore
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // @ts-ignore
-import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const MdxFields__slug: React.FC<PageProps> = ({ data, children }) => {
   return (
@@ -54,34 +56,7 @@ const MdxFields__slug: React.FC<PageProps> = ({ data, children }) => {
         </div>
         {/* 正文 */}
         <section className="mt-10">
-          <ReactMarkdown
-            className="markdown-body"
-            remarkPlugins={[remarkGfm, remarkMath]}
-            rehypePlugins={[rehypeKatex]}
-            components={{
-              code(props) {
-                const { children, className, node, ...rest } = props;
-                const match = /language-(\w+)/.exec(className || "");
-                return match ? (
-                  <SyntaxHighlighter
-                    {...rest}
-                    children={String(children).replace(/\n$/, "")}
-                    style={prism}
-                    language={match[1]}
-                    PreTag="div"
-                    showLineNumbers={true}
-                    lineNumberStyle={{ paddingRight: "1.5em", opacity: 0.5 }}
-                  />
-                ) : (
-                  <code {...rest} className={className}>
-                    {children}
-                  </code>
-                );
-              },
-            }}
-          >
-            {(data as any).mdx.body}
-          </ReactMarkdown>
+        <MdPreview editorId='preview' modelValue={(data as any).mdx.body} previewTheme={'smart-blue'}/>
         </section>
       </section>
     </Layout>

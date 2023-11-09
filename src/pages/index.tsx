@@ -1,7 +1,6 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import Layout from "../components/layout";
-import IndexBackground from "../images/wave.png";
 import {
   AxesHelper,
   DirectionalLight,
