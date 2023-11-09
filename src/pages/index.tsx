@@ -18,6 +18,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const IndexPage: React.FC<PageProps> = () => {
   React.useEffect(() => {
+    document.title = 'Poccur.Top'
+  
     const threeCanvas = document.querySelector("#three-canvas");
     if (threeCanvas) {
       const canvasWidth = threeCanvas.clientWidth;
@@ -139,5 +141,3 @@ const IndexPage: React.FC<PageProps> = () => {
 };
 
 export default IndexPage;
-
-export const Head: HeadFC = () => <title>Home Page</title>;

@@ -1,11 +1,19 @@
-import React from "react";
-import { PageProps, graphql } from "gatsby";
+import React, { useEffect } from "react";
+import { HeadFC, PageProps, graphql } from "gatsby";
 import Layout from "../../components/layout";
 import utils from "../../libs/utils";
-import {MdPreview} from "md-editor-rt";
-import 'md-editor-rt/lib/preview.css';
+import { MdPreview } from "md-editor-rt";
+import "md-editor-rt/lib/preview.css";
 
 const MdxFields__slug: React.FC<PageProps> = ({ data, children }) => {
+  useEffect(() => {
+    document.title =  'Poccur | '+(data as any).mdx.frontmatter.title;
+
+    return () =>{
+      document.title = 'Poccur'
+    }
+  }, [data]);
+
   return (
     <Layout>
       <section className="w-page mx-auto pt-page">
@@ -46,7 +54,7 @@ const MdxFields__slug: React.FC<PageProps> = ({ data, children }) => {
         </div>
         {/* 正文 */}
         <section className="mt-10">
-        <MdPreview editorId='preview' modelValue={(data as any).mdx.body} />
+          <MdPreview editorId="preview" modelValue={(data as any).mdx.body} />
         </section>
       </section>
     </Layout>

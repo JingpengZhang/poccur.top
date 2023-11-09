@@ -1,18 +1,20 @@
-import React from "react";
-import { graphql, type PageProps } from "gatsby";
+import React, { useEffect } from "react";
+import { graphql, HeadFC, type PageProps } from "gatsby";
 import Layout from "../../components/layout";
 import ArticleItem from "../../components/article-item";
 import utils from "../../libs/utils";
 
 const Articles: React.FC<PageProps> = ({ data }) => {
-  console.log(data);
+  useEffect(()=>{
+    document.title = 'Poccur | 文章列表'
+  },[])
 
   return (
     <Layout>
       <ul className="w-page mx-auto pt-page">
         {(data as any).allMdx.group
-          .sort((a:any, b:any) => (a.fieldValue < b.fieldValue ? 1 : -1))
-          .map((yearGroup:any) => {
+          .sort((a: any, b: any) => (a.fieldValue < b.fieldValue ? 1 : -1))
+          .map((yearGroup: any) => {
             return (
               <li
                 key={yearGroup.fieldValue}
@@ -23,8 +25,10 @@ const Articles: React.FC<PageProps> = ({ data }) => {
                 </span>
                 <ul className="mt-8 pl-8">
                   {yearGroup.group
-                    .sort((a:any, b:any) => (a.fieldValue > b.fieldValue ? 1 : -1))
-                    .map((monthGroup:any) => {
+                    .sort((a: any, b: any) =>
+                      a.fieldValue > b.fieldValue ? 1 : -1
+                    )
+                    .map((monthGroup: any) => {
                       return (
                         <li
                           className="mb-10 last-of-type:mb-0 relative before:block before:absolute before:bottom-0 before:-left-8 before:h-[calc(100%-3.6rem)] before:w-1 before:rounded before:bg-secondary"
@@ -34,7 +38,7 @@ const Articles: React.FC<PageProps> = ({ data }) => {
                             {yearGroup.fieldValue} - {monthGroup.fieldValue}
                           </span>
                           <ul className="w-full mt-8">
-                            {monthGroup.edges.map((article:any) => {
+                            {monthGroup.edges.map((article: any) => {
                               return (
                                 <li className="w-full" key={article.node.id}>
                                   <ArticleItem
