@@ -9,27 +9,27 @@ const Navigation: React.FC<Props> = ({ transparent = false }) => {
   const menus = [
     {
       id: 1,
-      name: "Home",
+      name: "首页",
       path: "/",
     },
     {
       id: 2,
-      name: "Ariticles",
+      name: "笔记",
       path: "/articles",
     },
     {
       id: 3,
-      name: "Projects",
+      name: "项目",
       path: "/projects",
     },
     {
       id: 4,
-      name: "FriendLinks",
+      name: "友链",
       path: "/friend-links",
     },
     {
       id: 5,
-      name: "About",
+      name: "关于",
       path: "/about",
     },
   ];
