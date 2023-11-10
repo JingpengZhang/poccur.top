@@ -25,6 +25,12 @@ const config: GatsbyConfig = {
         extensions: [`.mdx`, `.md`],
       },
     },
+    {
+      resolve: "gatsby-plugin-baidu-analytics",
+      options: {
+        siteId: "91f6cbda852f1ea9cc1ca5dec6e4e453",
+      },
+    },
     // {
     //   resolve: "gatsby-source-contentful",
     //   options: {

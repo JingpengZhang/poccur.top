@@ -6169,6 +6169,11 @@ gatsby-parcel-config@^1.12.1:
     "@parcel/transformer-js" "2.8.3"
     "@parcel/transformer-json" "2.8.3"
 
+gatsby-plugin-baidu-analytics@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-baidu-analytics/-/gatsby-plugin-baidu-analytics-2.2.0.tgz#d8b4653d6f1ef9a2243ae0028b2ffdf592ee50e9"
+  integrity sha512-tY3BDTB7tF3gOPj61V25oiCwUT+7TclPwtG7wVa31abAMcMGXDaq54V2AMTa5Nux50zm/IIbvgsuygzul+FAyA==
+
 gatsby-plugin-image@^3.12.3:
   version "3.12.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-3.12.3.tgz#7e1484d014afbe0005497934b4215938a69fcf56"
