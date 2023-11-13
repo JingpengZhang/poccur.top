@@ -12,7 +12,7 @@ const Index: React.FC<PageProps> = () => {
       avatar: MyAvatar,
       title: "Poccur.TOP",
       website: "https://poccur.top",
-      color: "#7abccf",
+      color: "#fbf3de",
     },
     {
       name: "xfy",
